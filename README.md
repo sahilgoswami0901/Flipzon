@@ -1,117 +1,129 @@
 # Flipzon
-CLI based platform just like of Amazon 
-<br/>
-<div align="center">
-  <img width="329" style="center" alt="image" src="https://github.com/sahilgoswami0901/Flipzon/assets/107829550/480a4f8c-5277-4fd1-951e-d53cd7666181"> <br/>
-</div>
+CLI based platform, similar to Amazon 
 
-The placement season is just about to begin at IIITD, and the placement cell needs a portal <br/>
-“FutureBuilder” to conduct the placement drive. You are supposed to create a portal to be used <br/>
-by the students of the institute by which they can apply to the companies. You have to use <br/>
-various concepts covered in class till lecture-3 to design this system. The application needs to <br/>
-serve the following requirements:- <br/>
-1) The placement cell opens company registrations, following which students register for
-companies they are interested in.
-2) A student can register for a company if they meet the following criteria -
-a) If not placed yet and is eligible.
-b) CGPA of the student >= minimum CGPA criteria of the company
-c) CTC offered by the company >= 3 * highest CTC currently held by the student
-For example - a student has received an offer from a company ‘A’ with a CTC Rs. x, now
-this student can only register for a company ‘B’ if it offers a CTC >= 3*x, and also
-satisfies the CGPA criteria set by the company.
-3) Once the company receives all the registrations, it selects some students out of the ones
-who applied (a company has to select at least one student; students can be picked
-randomly for this question).
-4) The selected students have the option to accept or reject the offer.
-5) If a student accepts an offer, the status of that student should be marked as offered and
-should not be allowed to sit in any further processes (unless the student satisfies criteria
-2(b) and 2(c)).
-6) If a not yet placed student rejects all the available offers at any point, then the student
-status should be marked as blocked and shouldn’t be allowed to participate further.
-7) A company can register only once.
-NOTE: if a student gets selected in more than 1 company simultaneously, the student
-will get the offer with a higher package.
-You have to implement this system which should have the following functionalities.
+# Description:
+The Great Indian Festival Season has begun and young entrepreneurs of our institute have just
+started their startup, “FLIPZON”. It’s a product based start-up where people can buy a plethora
+of products and get them delivered at home. “FLIPZON” founders Beff Jezos and Gill Bates
+want this product to be revolutionary and want you to build an application for the same.
+You must employ OOP principles, e.g., interfaces, inheritance, polymorphism, whichever
+provides the best and most appropriate design.
+The application needs to serve the following flow:
 
-# Student Functionalities:
-1. Register For Placement Drive:- the student should be able to register for the placement
-drive and have the following details -
-a. Name
-b. Roll No.
-c. CGPA
-d. Branch
-2. Register For Company - An eligible student should be able to register for an available
-company and status should be changed to applied. By default the status should be
-“not-applied”.
-3. Get All available companies - Print all the companies and its details where the student
-can apply for. If a student doesn’t meet the criteria for sitting in further processes, print
-unavailable.
-4. Get Current Status - print the status of the student, whether blocked, offered, un-offered.
-If the student is offered, print the company from which the student got the offer from and
-its details.
-5. Update CGPA - the student should give the older CGPA and the new updated CGPA to
-the institute placement cell. The CGPA should be updated by the placement cell only.
-6. Accept / Reject offer - the student has a choice to accept / reject the latest offer available
-to him/her
-Institute-Placement Cell Functionalities
-1. Open Student Registrations - print that institute is open for student-registrations for the
-placement drive. Also set a deadline till when the students can apply. It should have a
-start and end date-time.
-NOTE: registrations for students can’t open before company registrations end.
-2. Open Company Registrations - print that the institute is open for company registrations
-for the placements. Also, set a deadline for the companies can register. It should have a
-start and end date and time.
-NOTE: you will need to maintain the date-time as an attribute of a company when it
-registers for placement process to check whether or not the company has applied before
-the deadline.
-3. Get Number of Student Registrations - print the number of students registered for the
-placement drive.
+1) The application will have a command line based user interface where you can opt to
+enter as the admin of the application or as a customer.
+2) The customers have been divided into three categories: “ELITE”, “PRIME”, “NORMAL”.
+The difference between these 3 categories is on the basis of the discounts/perks they
+get. The details of the three categories will be explained separately below.
+3) You as the admin of the application will add some product categories under which you
+need to add some products that the company wants to sell. (at least 3 products for each
+category, and a minimum of 3 categories is expected).
+NOTE:- each product will have a unique ID. You should take care of this while
+implementing
 
-4. Get Number of Company Registrations - print the number of companies registered for
-the placement drive.
-5. Get Number of Placed/UnPlaced/Blocked Students - print number of offered students
-with their details.
-Note: an unplaced student who rejects all available offers at any instant is blocked
-from placement cycle
-6. Get Student Details - it takes in the name and roll number of the student and prints
-details of the participation in the placement drive (details of the companies applied for
-and didn’t apply for. Also print whether the student was offered by the company or not).
-7. Get Company Details - it takes in the name of the company and prints the details of the
-company. Also print the names and roll no. of the students if the company has offered
-any student.
-8. Get Average Package: print the average package offered to the students of the institute.
-9. Get Company Process Results:- In this query, the company should send in a list of all
-the students they have selected to the cell. Take the company name as input in this
-case.
+4) We can now enter as users of the application. When you enter the application, the user
+can see all the products and explore them but one cannot add it to the cart and buy it
+when the user has not registered.
+5) Once the user has registered on the application portal, the user becomes a “NORMAL”
+customer for the user by default. A user by default has Rs 1000 in its account. You can
+maintain a wallet attribute for each user (or customer) which stores the balance.
+6) The user can buy a membership and purchase monthly/yearly subscriptions to upgrade
+to a “ELITE” / ”PRIME” customer. An “ELITE” membership costs Rs 300 and a “PRIME”
+membership costs Rs 200. Both the costs are for one month membership.
+7) To buy a membership you should redirect to payment and deduct that amount from the
+balance of the customer.
+8) Customers also get one time use coupons which they can apply and get a discount on
+the total amount to be paid. The details of coupons will be explained further.
+9) The Customer can go through the list of products and choose items to add in the cart.
+Once all items are added in the cart, the customer can choose to delete items from the
+cart or checkout from the cart to pay the total amount. Once paid, the total amount will
+be deducted from the account of the user.
+10) Please note that if the customer has insufficient amount in the account, decline the
+payment saying that there is not sufficient balance in your account.
+11) You need to return to the home page after payment.
+12) Once you are done shopping, you can log out from the account and sign in as another
+user.
 
-# Company Functionalities:
-1. RegisterToInstituteDrive - to register for an institute’s placement drive you need to add
-following information.
-a. Name of the company
-b. Role a company offers
-c. Package being offered by the company
-d. CGPA criteria
-e. Registration date-time (when company registers for the placement process)
-Once registered you should print registered on the console.
-NOTE:- you are not required to register a company for multiple roles. For simplicity
-assume one company offers one type of role only.
-2. Get Selected Students - get all the selected students of the campus who will be offered.
-Print the names and details of the students (such as email ID, roll no, etc. )
-3. Update Role/Package/CGPA criteria - using these options, the company can set the role
-and package and the CGPA criteria.
+Let’s see some of the functionalities of some of the entities that are important in this application.
 
-For the demo of the working of the application, you are expected to add at least 1 company
-and 3 students. There should be different modes where you should be able to operate the
-portal.
-1. The Application should start when you type in “Enter FutureBuilder”
-2. On Entering we should get the following options
-a. Student mode: type 1 to switch to student mode where you perform only student
-queries.
-NOTE:- you will be asked 3 options to choose in student mode(as given in the
-test case). You can perform queries once student objects are created.
-b. Institute Placement Cell mode: type 2 to switch to placement cell mode where
-you perform only placement cell queries.
-c. Company mode : type 3 to switch to company mode where you perform only
-company queries.
-d. Type 4 to return back to the main application
-3. The Application should stop when you type in “Exit FutureBuilder”
+Admin Functionalities
+1) Enter as Admin: In this functionality, the application should take in your username and
+roll no. as password and if they’re correct, then you must get all privileges of an admin.
+2) Add Category: This functionality will help the admin to add a new category. It’ll take the
+category ID and the name of the category as input. Also take in input a product name
+and its details because there can not be an empty category.
+3) Delete Category: This functionality will help the admin to delete a new category. It’ll take
+the name of the category and category ID as input. Once the input is taken the whole
+category (including the details of the products inside it) will be deleted.
+4) Add Product: If you want to add a new product take in input the category ID and add the
+name of the product and its details (such as price, quantity) and it should get added in
+the respective category. (NOTE: the category should exist otherwise add a category
+first.)
+5) Delete Product: If you want to delete a product take in input the name of the category
+and product ID. The product from that category should get deleted.
+(NOTE:- you shouldn’t keep a category empty, if there is no product in a category, you
+should ask to add a product or else the category would get deleted).
+
+6) Set Discount on Product: this functionality will allow the admin to set the discount to be
+given on a particular product to specific customers. It will take in input the product ID ,
+the discount percentage to be set and the customer categories which can avail this offer.
+Discount rates differ for each category of customer. (Look at the given test case to
+understand how to take input).
+7) Add giveaway deals: this functionality allows the admin to give in the product ID of 2
+products and give a lower price than their combined prices as a giveaway deal. (you can
+maintain an ID for deals also to make it convenient to track)
+
+Customer functionalities
+1) SignUp : This functionality will help the customer to first register and make an account on
+the application. It will take the name, age, phone number, email id and password as
+
+input.
+2) Log in: This functionality will allow the already registered customer to log in by providing
+the name, email id and password as input. A customer will be able to login only if the
+fields match with the ones in the database.
+3) Upgrade status: this allows a customer to upgrade to an elite customer or a prime
+customer.
+4) Explore Product Catalog: This functionality allows the customers to surf through the
+product categories and products under the categories. (For more details you can refer to
+the test case).
+5) Add product to cart: user specifies a product ID and the quantity which is added to cart,
+depending on the availability of the product
+6) Make Payment: This functionality will allow the customer to make payment and shows
+the total bill of all items in cart along with the list of coupons one can apply.
+Below are the privileges that “ELITE” and “PRIME” customers enjoy.
+1) The “ELITE” customers will be eligible for all the discounts/coupons set by the admin.
+They will enjoy a 10 % discount on each product they buy. Also they can get a free
+surprise from “FLIPZON”. This means that the “ELITE” customers can randomly get a
+free product as a surprise on making an order. All deliveries will be made within 2 days
+for all the “ELITE” customers. They have to pay delivery charges equal to Rs 100 flat on
+all their orders. Also, “ELITE” customers receive 3-4 coupons for every order above the
+limit of Rs 5000
+2) For “PRIME” they will also be eligible for the discounts/coupons set by the admin. They
+will enjoy a 5% discount on each product they buy. All deliveries will be made within 3-6
+days (this can be randomized in the implementation) and they have to pay delivery
+charges equal to flat Rs 100 + 2% of the order value. They receive 1-2 coupons on
+orders above Rs 5000.
+Note: “NORMAL” customers do not receive any discount, deliveries are made within 7-10 days
+for them and have to pay delivery charges equal to 100 + 5% of order value. They receive no
+coupons whatsoever.
+Note: Every coupon can range from anywhere between 5% - 15% discount, which can be
+randomly generated. Only one coupon per order can be applied and the coupon with the highest
+discount will be applied automatically.
+
+Note: always apply product-wise discount. Out of all available discounts (from coupons, based
+on user category, individual product discount, pick the maximum one for each product)
+There will also be a feature by FLIPZON for attracting customers by providing giveaway deals
+that are special deals which customers can enjoy. These deals will be set by the admin by
+combining 2 products and offering them at a lower combined price than the price after applying
+product specific discount on both the products. Note that no other discounts are to be applied on
+any deal for any user type. Each deal will have three prices associated with it corresponding to
+each product category.
+
+For demonstration of the application, you need to show at least 3 categories of products and
+customers of each category. The Application should allow the following options:
+1) Exit the application: this will terminate the entire application.
+2) You can enter as admin or enter as a customer.
+3) You should allow a visiting user who has not registered just to explore the application but
+not allow the user to buy anything.
+4) The application should also have an option to show the available special deals to the
+users (the ones where 2 products are sold in combination)
